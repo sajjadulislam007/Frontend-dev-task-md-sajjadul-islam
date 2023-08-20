@@ -68,11 +68,17 @@
     color: rgba(white, 0.8);
     @extend %d-flex;
     align-items: flex-end;
-    overflow: hidden;
     padding: toRem(0);
     position: relative;
     text-decoration: none;
     margin-bottom: toRem(24px);
+
+    .orange-label{
+      position: absolute;
+    left: -3px;
+    bottom: 35px;
+    z-index: 5;
+    }
 
     &:hover {
       .trending--item__bg {
@@ -101,6 +107,7 @@
     overflow: hidden;
     border-radius: toRem(3);
     border-radius: toRem(10);
+    
 
     img {
       width: 100%;
@@ -108,6 +115,8 @@
       object-fit: cover;
       transition: all 0.3s ease-in-out;
     }
+
+    
   }
 
   &__caption {

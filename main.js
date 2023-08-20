@@ -806,6 +806,7 @@ document.querySelector("#app").innerHTML = `
             <h3>Spider-Man</h3>
             <span>$28.09</span>
           </div>
+          <span class="orange-label">-26%</span>
         </a>
       </div>
       <div class="trending--item slide-up">
@@ -817,6 +818,7 @@ document.querySelector("#app").innerHTML = `
             <h3><span class="gray-label">DLC</span> Football Manager</h3>
             <span>$30.09</span>
           </div>
+          <span class="orange-label">-23%</span>
         </a>
       </div>
       <div class="trending--item slide-up">
@@ -828,6 +830,7 @@ document.querySelector("#app").innerHTML = `
             <h3>Armored Core</h3>
             <span>$32.09</span>
           </div>
+          <span class="orange-label">-30%</span>
         </a>
       </div>
     </div>
