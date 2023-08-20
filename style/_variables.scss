@@ -1,0 +1,40 @@
+// ----- REM px function
+$baseFontSize: 16;
+@function toRem($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context) * 1rem;
+}
+
+/* ------------------------------------------- */
+/* -- Colours + Variables */
+/* ------------------------------------------- */
+
+$site-width: 1260;
+
+// Defsult space
+$space: 20px;
+
+$font--main: "Montserrat", sans-serif;
+
+// Body copy colour
+$color--body: #272727;
+
+// Colours - eidt as needed
+$color--white: #ffffff;
+$color--black: #000000;
+
+$color--gray: #77797c;
+$color--orange: #ff4d1a;
+$color--1: #333a3d;
+$color--2: #676767;
+$color--3: #fc0200;
+$color--4: #140f0f;
+
+$breakpoint--main: 768;

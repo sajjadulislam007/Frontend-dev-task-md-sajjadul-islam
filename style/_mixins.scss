@@ -1,0 +1,48 @@
+%d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+%bg-cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin flex($width) {
+  flex: 0 0 $width;
+  max-width: $width;
+  width: 100%;
+}
+
+@mixin cont-padding {
+  padding: toRem(44) 0;
+
+  @media (min-width: 768px) {
+    padding: toRem(96) 0;
+  }
+}
+
+@mixin animate-line {
+  background-image: linear-gradient(to right, #deb426, #f07c20, #f2672a);
+  bottom: -3px;
+  content: "";
+  height: 3px;
+  right: 0;
+  position: absolute;
+  width: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+@mixin animate-line-hover {
+  left: 0;
+  width: 100%;
+}
+
+@mixin bg-cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

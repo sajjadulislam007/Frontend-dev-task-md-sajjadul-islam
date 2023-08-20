@@ -1,0 +1,149 @@
+// Trending Card
+
+.trending-row {
+  @extend %d-flex;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: toRem(-24px);
+  @media (min-width: 768px) {
+    margin-bottom: toRem(-20px);
+  }
+}
+
+.trending-row {
+  @extend %d-flex;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  > * {
+    @extend %slide--up;
+
+    @for $i from 1 through 15 {
+      &:nth-child(#{$i}n) {
+        transition-delay: #{$i * 0.2}s;
+      }
+    }
+  }
+
+  .trending--item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    padding-left: toRem(10);
+    padding-right: toRem(10);
+
+    @media (min-width: 768px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+      width: 100%;
+    }
+    @media (min-width: 992px) {
+      flex: 0 0 33.33%;
+      max-width: 33.33%;
+      width: 100%;
+    }
+  }
+}
+
+.trending--item {
+  flex: 0 0 50%;
+  max-width: 50%;
+  width: 100%;
+  padding-left: toRem(10);
+  padding-right: toRem(10);
+
+  @media (min-width: 768px) {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    width: 100%;
+  }
+
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}n) {
+      transition-delay: #{$i * 0.2}s;
+    }
+  }
+
+  a {
+    color: rgba(white, 0.8);
+    @extend %d-flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: toRem(0);
+    position: relative;
+    text-decoration: none;
+    margin-bottom: toRem(24px);
+
+    &:hover {
+      .trending--item__bg {
+        img {
+          object-fit: cover;
+          transform: scale(1.05);
+        }
+      }
+
+      .trending--item__caption {
+        h3 {
+          color: $color--orange;
+        }
+
+        .gray-label {
+          // background-color: $color--orange;
+          border: 1px solid $color--orange;
+        }
+      }
+    }
+  }
+
+  &__bg {
+    height: 300px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: toRem(3);
+    border-radius: toRem(10);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &__caption {
+    width: 100%;
+    margin-top: toRem(16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      color: $color--white;
+      font-size: toRem(16);
+      font-family: $font--main;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.4px;
+      margin-bottom: toRem(0);
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease-in-out;
+
+      .gray-label {
+        border: 1px solid $color--gray;
+        margin: 0;
+        font-size: 10px;
+        padding: 2px 3px;
+        margin-right: toRem(5px);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    span {
+      color: $color--white;
+      font-size: toRem(16);
+      font-family: $font--main;
+      font-weight: 600;
+    }
+  }
+}

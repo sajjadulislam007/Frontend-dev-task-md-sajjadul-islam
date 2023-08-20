@@ -1,0 +1,485 @@
+/* ------------------------------------------- */
+/* -- Placeholders */
+/* ------------------------------------------- */
+%gray-lavel {
+  background-color: $color--body;
+  border-radius: 4px;
+  color: $color--white;
+  display: inline-block;
+  font-size: toRem(13);
+  margin-bottom: 15px;
+  padding: toRem(5) toRem(10);
+}
+%orange-lavel {
+  font-size: toRem(16);
+  color: $color--white;
+  background-color: $color--orange;
+  padding: toRem(5) 0 toRem(5) toRem(10);
+  font-weight: 600;
+  border-radius: 3px 0 0 3px;
+  z-index: 1;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 30px;
+    border-radius: 0 3px 3px 0;
+    background-color: $color--orange;
+    top: 0;
+    right: -10px;
+    transform: skew(15deg);
+    z-index: -2;
+  }
+}
+
+.gray-label {
+  @extend %gray-lavel;
+}
+.orange-label {
+  @extend %orange-lavel;
+}
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%wrapper {
+  max-width: $site-width;
+  margin: 0 auto;
+  position: relative;
+  padding-left: toRem(20);
+  padding-right: toRem(20);
+  @extend %clearfix;
+}
+
+%holder {
+  max-width: $site-width + px;
+  margin: 0 auto;
+  position: relative;
+  @extend %clearfix;
+
+  @media (min-width: 1300px) {
+    max-width: $site-width + px;
+  }
+}
+
+%naked-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%button {
+  background-color: #323232;
+  border: 1px solid $color--2;
+  border-radius: toRem(5);
+  color: $color--white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font--main;
+  font-size: toRem(14);
+  font-weight: 600;
+  letter-spacing: 0.28px;
+  line-height: 126%;
+  overflow: hidden;
+  text-decoration: none;
+  padding: toRem(12) toRem(20);
+  position: relative;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $color--white;
+    border: 1px solid $color--orange;
+  }
+}
+
+.btn {
+  @extend %button;
+}
+
+.btnBlock-mobile {
+  margin-top: toRem(44);
+}
+
+.text-center {
+  text-align: center;
+  .btn {
+    margin: 0 auto;
+  }
+}
+.corner-button,
+.corner-button span {
+  &:before,
+  &:after {
+    display: block;
+    content: "";
+    width: 15px; /* $button_border_size */
+    height: 15px; /* $button_border_size */
+    position: absolute;
+  }
+}
+
+.corner-button {
+  display: inline-block;
+  font-family: $font--main;
+  font-size: 20px;
+  position: relative;
+  min-width: 130px;
+  min-height: 30px;
+  margin-top: toRem(40px);
+  background: none;
+  border: none;
+  text-decoration: none;
+  background-color: rgba($color: #000, $alpha: 0.4);
+  cursor: pointer;
+  color: $color--white;
+  padding: 12px 20px;
+  box-sizing: content-box;
+  border: 2px solid transparent;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 600;
+  left: 0;
+  transform: translateX(0);
+  transition: all 0.5s color;
+
+  @media (min-width: 992px) {
+    min-width: 250px;
+    left: 70%;
+    transform: translateX(-70%);
+  }
+  &:before {
+    top: -2px;
+    left: -2px;
+    border-top: 3px solid $color--white;
+    border-left: 3px solid $color--white;
+    transition: 0.5s all;
+  }
+  &:after {
+    top: -2px;
+    right: -2px;
+    border-top: 3px solid $color--white;
+    border-right: 3px solid $color--white;
+    transition: 0.5s all;
+  }
+  span {
+    display: block;
+    &:before {
+      bottom: -2px;
+      left: -2px;
+      border-bottom: 3px solid $color--white;
+      border-left: 3px solid $color--white;
+      transition: 0.5s all;
+    }
+    &:after {
+      bottom: -2px;
+      right: -2px;
+      border-bottom: 3px solid $color--white;
+      border-right: 3px solid $color--white;
+      transition: 0.5s all;
+    }
+  }
+  &:hover {
+    color: $color--white;
+    &:before,
+    &:after {
+      border-color: $color--orange; /* $button_hover_border_color */
+      width: 100%;
+      height: 100%;
+    }
+    span {
+      &:before,
+      &:after {
+        border-color: $color--orange; /* $button_hover_border_color */
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+//----------------------------------
+
+* {
+  box-sizing: border-box;
+}
+
+.chromeframe {
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  background: #fff;
+  color: #666;
+}
+
+@-webkit-viewport {
+  width: device-width;
+}
+@-moz-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+
+/* -------------------------------------------------------------------------------*/
+
+// scrollbar config
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $color--gray;
+  border-radius: 20px;
+}
+
+/* Basics + Fonts
+---------------------------------- */
+html {
+  overflow: unset !important;
+}
+
+body {
+  background-color: $color--body;
+  color: $color--white;
+  display: flex;
+  font-family: $font--main;
+  font-weight: 400;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  overflow: unset;
+
+  @media (max-width: 768px) {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+img {
+  backface-visibility: hidden;
+  height: auto;
+  max-width: 100%;
+}
+
+p,
+ul,
+ol {
+  color: $color--white;
+  font-family: $font--main;
+  font-size: toRem(14);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 182%;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: toRem(18);
+  }
+
+  + p,
+  + ul,
+  + ol {
+    margin-top: toRem(20);
+
+    @media (min-width: 768px) {
+      margin-top: toRem(25);
+    }
+  }
+}
+
+.holder {
+  @extend %holder;
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media (min-width: 768px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Headers / Titles
+================================= */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 120%;
+}
+
+h1,
+h3 {
+  font-weight: 400;
+}
+
+h2,
+h4 {
+  font-weight: 300;
+}
+h1 {
+  font-size: toRem(40);
+
+  @media (min-width: 768px) {
+    font-size: toRem(60);
+  }
+}
+h2 {
+  @media (min-width: 768px) {
+    font-size: toRem(40);
+  }
+}
+
+h3 {
+  font-size: toRem(30);
+
+  @media (min-width: 768px) {
+    font-size: toRem(35);
+  }
+}
+h4 {
+  font-size: toRem(20);
+
+  @media (min-width: 768px) {
+    font-size: toRem(24);
+  }
+}
+
+input,
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+/* ---------- */
+
+/* Links
+================================= */
+
+a {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+a:focus {
+  outline: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+// main wrapper
+.main--wrapper {
+  flex: 1 0 auto;
+  overflow: hidden;
+}
+
+/****************************************************
+    Input Style
+*****************************************************/
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="search"],
+input[type="password"],
+input[type="file"],
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: toRem(43);
+  color: $color--white;
+  font-weight: 400;
+  font-size: toRem(16);
+  line-height: normal;
+  font-family: $font--main;
+  box-shadow: none;
+  padding: toRem(12) toRem(20);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: toRem(100);
+  transition: all 0.3s ease;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+
+  &::-webkit-input-placeholder {
+    color: $color--white;
+    font-weight: 400;
+    font-size: toRem(16);
+    line-height: normal;
+    font-family: $font--main;
+  }
+  &::-moz-placeholder {
+    color: $color--white;
+    font-weight: 400;
+    font-size: toRem(16);
+    line-height: normal;
+    font-family: $font--main;
+  }
+  &:-ms-input-placeholder {
+    color: $color--white;
+    font-weight: 400;
+    font-size: toRem(16);
+    line-height: normal;
+    font-family: $font--main;
+  }
+  &:-moz-placeholder {
+    color: $color--white;
+    font-weight: 400;
+    font-size: toRem(16);
+    line-height: normal;
+    font-family: $font--main;
+  }
+
+  &:hover,
+  &:focus {
+    outline: 0;
+  }
+}
+
+.visible--mobile {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.visible--desktop {
+  display: block;
+
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+}

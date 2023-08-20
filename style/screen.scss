@@ -1,0 +1,27 @@
+// A basic reset
+@import "fonts";
+@import "reset";
+
+// Collection of mixins
+@import "mixins";
+/* ---------------------- */
+
+// Variables
+// Breakpoints, colors font-sizes
+@import "variables";
+
+@import "base";
+
+
+
+
+// @import "loader";
+
+/* ---------------------- */
+
+@import "animation";
+@import "header";
+@import "banner";
+@import "block";
+@import "trending-card";
+@import "footer";
